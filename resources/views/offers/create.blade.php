@@ -69,19 +69,40 @@
                 <div class="title m-b-md">
                     Add Your Offers
                 </div>
-                <form method="POSt" action="{{route('offers.store')}}">
+                
+                
+                @if(Session::has('sucess'))
+                <div class="alert alert-success" role="alert">
+                       {{Session::get('sucess')}}
+                </div>
+                @endif
+                
+                
+                
+                <br>
+                <form method="POST" action="{{route('offers.store')}}">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Offer Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                        @error('name')
+                        <small class="form-text text-danger" >{{$message}}</small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Offer Price</label>
                         <input type="text" class="form-control" name="price" placeholder="Enter Price">
+                        @error('price')
+                        <small class="form-text text-danger" >{{$message}}</small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Offer Details</label>
                         <input type="text" class="form-control" name="details" placeholder="Enter Details">
+                        @error('details')
+                        <small class="form-text text-danger" >{{$message}}</small>
+                        @enderror
+
                     </div>
 
                     <button type="submit" class="btn btn-primary">Save Offer</button>
