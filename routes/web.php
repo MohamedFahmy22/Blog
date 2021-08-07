@@ -38,6 +38,9 @@ Route::group([
         //   Route::get('store', 'CrudController@store');
         Route::get('create', 'CrudController@create');
         Route::post('store', 'CrudController@store')->name('offers.store');
+        Route::get('all', 'CrudController@getAllOffers');
+
+        
    });
     });
     
